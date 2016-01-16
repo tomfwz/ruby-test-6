@@ -6,4 +6,8 @@ class Person < ActiveRecord::Base
   validates :dob,        presence: true
 
   enumerize :gender, in: [:male, :female]
+
+  def age
+    ((Date.today - dob) / 365).floor
+  end
 end

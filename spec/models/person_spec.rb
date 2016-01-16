@@ -7,4 +7,12 @@ RSpec.describe Person, type: :model do
     it { is_expected.to validate_presence_of :dob }
     it { is_expected.to enumerize(:gender).in(:male, :female) }
   end  
+
+  describe '#age' do
+    let(:john) { build(:person, dob: 20.years.ago) }
+
+    it 'returns the age of person from his birthday' do
+      expect(john.age).to eq 20 
+    end
+  end 
 end
