@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   extend Enumerize
 
+  MIN_AGE = 0
+
   belongs_to :father, class_name: 'Person', foreign_key: 'father_id'
   belongs_to :mother, class_name: 'Person', foreign_key: 'mother_id'
 
