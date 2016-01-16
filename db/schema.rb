@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116033819) do
+ActiveRecord::Schema.define(version: 20160116062440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "childrens_tables", force: :cascade do |t|
+    t.integer "parent_id"
+  end
+
+  add_index "childrens_tables", ["parent_id"], name: "index_childrens_tables_on_parent_id", using: :btree
+
+  create_table "families", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "children_id"
+  end
+
+  create_table "parent_child", force: :cascade do |t|
+    t.integer "children_id"
+    t.integer "father_id"
+    t.integer "mother_id"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
