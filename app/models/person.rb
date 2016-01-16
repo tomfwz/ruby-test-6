@@ -12,6 +12,7 @@ class Person < ActiveRecord::Base
   
   validate  :ensure_valid_age
 
+  enumerize :gender, in: [:male, :female]
   enumerize :type,   in: [:Father, :Mother, :Son, :Daughter]
 
   def age
