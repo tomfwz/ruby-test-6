@@ -13,4 +13,8 @@ class Person < ActiveRecord::Base
   def age
     ((Date.today - dob) / 365).floor
   end
+
+  def parent
+    [mother, father]
+  end
 end
