@@ -154,4 +154,13 @@ RSpec.describe Person, type: :model do
       expect(james.name).to eq james_name 
     end
   end
+
+  describe '#say_something' do
+    let!(:james)   { create(:father, first_name: 'James', last_name: 'Fwz') }
+    let(:greeting) { "Hello, my name is James Fwz." }
+
+    it 'returns the greeting' do
+      expect(james.say_something).to eq greeting 
+    end
+  end
 end
