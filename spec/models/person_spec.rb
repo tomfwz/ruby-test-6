@@ -145,4 +145,13 @@ RSpec.describe Person, type: :model do
       expect(james.father_of?(wayne)).to be false
     end
   end
+
+  describe '#name' do
+    let!(:james)     { create(:father, first_name: 'James', last_name: 'Fwz') }
+    let(:james_name) { "James Fwz" }
+
+    it 'returns the name of person' do
+      expect(james.name).to eq james_name 
+    end
+  end
 end
