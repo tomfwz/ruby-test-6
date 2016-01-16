@@ -21,6 +21,7 @@ group :development, :test do
   gem 'better_errors'       # Display a better error page on development webpage
   gem 'binding_of_caller'   # Required by better_errors gem
   gem 'awesome_print'       # Pretty prints Ruby objects for inspection
+  gem 'pry-rails'
 end
 
 group :development do
