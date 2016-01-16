@@ -5,9 +5,9 @@ RSpec.describe Father, type: :model do
     it { is_expected.to enumerize(:gender).in(:male) }
   end  
   
-  describe '#father' do
-    let!(:father) { create(:person, type: 'Father') }
-    let(:tom) { create(:person, father: father) }
+  describe 'father' do
+    let!(:father) { create(:father) }
+    let(:tom)     { create(:son, father: father) }
 
     it 'returns father' do
       expect(tom.father).to eq father
