@@ -16,6 +16,29 @@ RSpec.describe Person, type: :model do
     end
   end 
 
+  describe '#ensure_valid_age' do
+    let!(:father) { build(:father) }
+    let!(:mother) { build(:mother) }
+    let!(:son)    { build(:son) }
+
+    context 'valid' do
+      it 'is a valid father' do
+        father.dob = 20.years.ago
+        expect(father).to be_valid
+      end
+    
+      it 'is a valid mother' do
+        mother.dob = 18.years.ago
+        expect(mother).to be_valid
+      end
+
+      it 'is a valid son' do
+        son.dob = 10.years.ago
+        expect(son).to be_valid
+      end
+    end
+  end
+
   describe 'father' do
     let!(:father) { create(:father) }
     let(:tom)     { create(:son, father: father) }

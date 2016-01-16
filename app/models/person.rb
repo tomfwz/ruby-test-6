@@ -39,4 +39,10 @@ class Person < ActiveRecord::Base
   def father_of?(person)
     self == person.father
   end
+  
+  protected
+
+  def ensure_valid_age
+    return errors[:dob] << 'Invalid.' if dob? && age < self.class::MIN_AGE
+  end
 end
