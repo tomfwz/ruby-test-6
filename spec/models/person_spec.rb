@@ -37,6 +37,23 @@ RSpec.describe Person, type: :model do
         expect(son).to be_valid
       end
     end
+
+    context 'invalid' do
+      it 'is a invalid father' do
+        father.dob = 19.years.ago
+        expect(father).to be_invalid
+      end
+    
+      it 'is a invalid mother' do
+        mother.dob = 17.years.ago
+        expect(mother).to be_invalid
+      end
+
+      it 'is a invalid son' do
+        son.dob = Date.current + 1.years
+        expect(son).to be_invalid
+      end
+    end
   end
 
   describe 'father' do
