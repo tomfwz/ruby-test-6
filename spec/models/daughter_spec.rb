@@ -5,6 +5,24 @@ RSpec.describe Daughter, type: :model do
     it { is_expected.to enumerize(:gender).in(:female) }
   end  
 
+  context 'valid gender' do
+    let(:daughter)   { build(:daughter) }
+    
+    context 'valid' do
+      it 'is valid gender of a daughter' do
+        daughter.gender = :female
+        expect(daughter).to be_valid
+      end
+    end
+
+    context 'invalid' do
+      it 'is invalid gender of a daughter' do
+        daughter.gender = :male
+        expect(daughter).to be_invalid
+      end
+    end
+  end
+
   describe '#say_something' do
     let!(:father)   { create(:father) }
     let!(:sophie)   { create(:daughter, father: father) }
