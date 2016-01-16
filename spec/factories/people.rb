@@ -19,4 +19,9 @@ FactoryGirl.define do
     gender :male
     type   :Son
   end
+
+  factory :daughter, class: 'Daughter', parent: :person do
+    gender :female
+    type   :Daughter
+  end
 end
