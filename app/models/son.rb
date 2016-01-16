@@ -1,0 +1,2 @@
+class Son < Person
+end

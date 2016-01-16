@@ -19,6 +19,6 @@ class Person < ActiveRecord::Base
   end
 
   def sons
-    child.where(gender: :male)
+    Person.where('father_id = ? OR mother_id = ? AND gender = ?', id, id, :male)
   end
 end
