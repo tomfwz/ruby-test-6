@@ -42,7 +42,15 @@ class Person < ActiveRecord::Base
   def father_of?(person)
     self == person.father
   end
-  
+ 
+  def name
+    [first_name, last_name].reject(&:empty?).join(' ')
+  end
+
+  def say_something
+    "Hello, my name is #{name}."
+  end
+
   protected
 
   def ensure_valid_age
