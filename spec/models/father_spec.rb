@@ -8,7 +8,7 @@ RSpec.describe Father, type: :model do
   describe '#say_something' do
     let(:father)   { create(:father) }
     let(:tom)      { create(:son, father: father) }
-    let(:greeting) { "Hello, I am your father" }
+    let(:greeting) { "Hello, I am your father." }
 
     it 'returns the greeting of father' do
       expect(tom.father.say_something).to eq greeting

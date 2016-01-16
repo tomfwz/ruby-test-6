@@ -5,12 +5,12 @@ FactoryGirl.define do
     dob        20.years.ago
   end
   
-  factory :father, parent: :person do
+  factory :father, class: 'Father', parent: :person do
     gender :male
     type   :Father
   end
 
-  factory :mother, parent: :person do
+  factory :mother, class: 'Mother', parent: :person do
     gender :female
     type   :Mother
   end
