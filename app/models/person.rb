@@ -5,7 +5,6 @@ class Person < ActiveRecord::Base
   validates :last_name,  presence: true
   validates :dob,        presence: true
 
-  enumerize :gender, in: [:male, :female]
   enumerize :type,   in: [:father, :mother, :son, :daughter]
 
   def age
