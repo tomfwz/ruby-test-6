@@ -5,7 +5,7 @@ class Person < ActiveRecord::Base
   validates :last_name,  presence: true
   validates :dob,        presence: true
 
-  enumerize :type,   in: [:father, :mother, :son, :daughter]
+  enumerize :type,   in: [:Father, :Mother, :Son, :Daughter]
 
   def age
     ((Date.today - dob) / 365).floor
