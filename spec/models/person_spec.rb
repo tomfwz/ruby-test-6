@@ -68,4 +68,17 @@ RSpec.describe Person, type: :model do
       expect(anna.child).to eq [joan]
     end
   end
+
+  describe '#daughters' do
+    let(:lily)    { create(:mother) }
+    let(:tom)     { create(:son, mother: lily) }
+    let(:wayne)   { create(:son, mother: lily) }
+    let(:sophie)  { create(:daughter, mother: lily) }
+    let(:joan)    { create(:daughter, mother: lily) }
+
+    it 'returns child' do
+      expect(lily.daughters).to eq [sophie, joan]
+      expect(lily.daughters).to_not include [tom, wayne]
+    end
+  end
 end

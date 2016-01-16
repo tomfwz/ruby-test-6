@@ -25,4 +25,8 @@ class Person < ActiveRecord::Base
   def child
     Person.where('father_id = ? OR mother_id = ?', id, id)
   end
+
+  def daughters
+    Person.where('father_id = ? OR mother_id = ? AND gender = ?', id, id, :female)
+  end
 end
