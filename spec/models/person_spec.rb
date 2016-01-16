@@ -5,7 +5,7 @@ RSpec.describe Person, type: :model do
     it { is_expected.to validate_presence_of :first_name }
     it { is_expected.to validate_presence_of :last_name }
     it { is_expected.to validate_presence_of :dob }
-    it { is_expected.to enumerize(:type).in(:father, :mother, :son, :daughter) }
+    it { is_expected.to enumerize(:type).in(:Father, :Mother, :Son, :Daughter) }
   end  
 
   describe '#age' do
@@ -15,4 +15,22 @@ RSpec.describe Person, type: :model do
       expect(john.age).to eq 20 
     end
   end 
+
+  describe 'father' do
+    let!(:father) { create(:father) }
+    let(:tom)     { create(:son, father: father) }
+
+    it 'returns father' do
+      expect(tom.father).to eq father
+    end
+  end
+
+  describe 'mother' do
+    let!(:mother) { create(:mother) }
+    let(:tom)     { create(:son, mother: mother) }
+
+    it 'returns mother' do
+      expect(tom.mother).to eq mother
+    end
+  end
 end

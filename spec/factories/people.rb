@@ -10,6 +10,11 @@ FactoryGirl.define do
     type   :Father
   end
 
+  factory :mother, parent: :person do
+    gender :female
+    type   :Mother
+  end
+
   factory :son, parent: :person do
     gender :male
     type   :Son
