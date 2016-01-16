@@ -17,4 +17,8 @@ class Person < ActiveRecord::Base
   def parent
     [mother, father]
   end
+
+  def sons
+    child.where(gender: :male)
+  end
 end

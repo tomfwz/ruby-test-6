@@ -43,4 +43,15 @@ RSpec.describe Person, type: :model do
       expect(tom.parent).to eq [mother, father]
     end
   end
+
+  describe '#sons' do
+    let!(:lily)   { create(:mother) }
+    let(:tom)     { create(:son, mother: lily) }
+    let(:wayne)   { create(:son, mother: lily) }
+
+    it 'returns parent' do
+      expect(lily.sons).to eq [tom, wayne]
+    end
+
+  end
 end
