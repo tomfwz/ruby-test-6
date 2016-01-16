@@ -163,4 +163,13 @@ RSpec.describe Person, type: :model do
       expect(james.say_something).to eq greeting 
     end
   end
+
+  describe '#older_than' do
+    let!(:james)   { create(:father, dob: 30.years.ago ) }
+    let!(:tom)     { create(:son, dob: 10.years.ago, father: james) }
+
+    it 'returns the number of ages between 2 person' do
+      expect(james.older_than(tom)).to eq 20 
+    end
+  end
 end

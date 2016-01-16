@@ -51,6 +51,10 @@ class Person < ActiveRecord::Base
     "Hello, my name is #{name}."
   end
 
+  def older_than(person)
+    age - person.age
+  end
+
   protected
 
   def ensure_valid_age
