@@ -155,15 +155,6 @@ RSpec.describe Person, type: :model do
     end
   end
 
-  describe '#say_something' do
-    let!(:james)   { create(:father, first_name: 'James', last_name: 'Fwz') }
-    let(:greeting) { "Hello, my name is James Fwz." }
-
-    it 'returns the greeting' do
-      expect(james.say_something).to eq greeting 
-    end
-  end
-
   describe '#older_than' do
     let!(:james)   { create(:father, dob: 30.years.ago ) }
     let!(:tom)     { create(:son, dob: 10.years.ago, father: james) }
